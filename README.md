@@ -3,8 +3,8 @@ Automated likes on instagram
 
 For Python > 3.2
 
-This Programm uses the private Instagram API by Pasha Lev: https://github.com/LevPasha/Instagram-API-python
-DO NOT use this programm in the real world. This is for educational purposes only.
+This Program uses the private Instagram API by Pasha Lev: https://github.com/LevPasha/Instagram-API-python
+DO NOT use this program in the real world. This is for educational purposes only.
 This is an instagram bot inspired by instabot.py by Pasha Lev but using the private Instagram API instead.
 
 # Requirements:
@@ -21,7 +21,7 @@ You can start the program using the commandline:
 OPTION 1
 Use commandline options.
 Type
-python3 instaAPIbot.py -h
+python3 instaAPI-bot.py -h
 for a list of available command line options.
 
 Examles using command line options:
