@@ -23,7 +23,7 @@ You can start the program using the commandline:
 `python3 instaAPI-bot.py`
 
 ## Alter the default settings with one of these two options:
-# OPTION 1
+### OPTION 1
 
 Use commandline options.
 Type
@@ -32,10 +32,10 @@ Type
 
 for a list of available command line options.
 
-Examles using command line options:
+Example using command line options:
 
 `python3 instaAPI-bot.py --username YOUR_INSTAGRAM_USERNAME --likes LIKES_PER_DAY --hashtags like4like selfie cute fashion`
 
-# OPTION 2
+### OPTION 2
 
 Open the file settings.py in an editor (preferable notepad++, sublime text2/3, atom) and edit the default values.
