@@ -109,6 +109,9 @@ while True:
 
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
 	for element in media_id['items'][:likes_per_tag]:
+		if not element['caption']['text']:
+			print('No caption')
+			continue
 		for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
 			if hashtag.strip().lower() in hashtag_blacklist:
 				print('Blacklisted hashtag "{}" found, skipping...'.format(hashtag))
