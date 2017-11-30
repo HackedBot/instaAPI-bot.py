@@ -109,7 +109,7 @@ while True:
 
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
 	for element in media_id['items'][:likes_per_tag]:
-		if not element['caption']['text']:
+		if 'text' not in element['caption']:
 			print('No caption')
 			continue
 		for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
@@ -127,6 +127,6 @@ while True:
 			round_like += 1
 			total_like += 1
 			print("Current round like: {}, total like: {}".format(round_like, total_like))
-			random_sec = random.randint(2,24)
+			random_sec = random.randint(2,62)
 			print("Waiting {} seconds...\n".format(int(waiting_time + random_sec)))
 			time.sleep(waiting_time + random_sec)
