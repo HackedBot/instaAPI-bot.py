@@ -109,14 +109,14 @@ while True:
 
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
 	for element in media_id['items'][:likes_per_tag]:
-		if 'text' not in element['caption']:
-			print('No caption')
-			continue
-		for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
-			if hashtag.strip().lower() in hashtag_blacklist:
-				print('Blacklisted hashtag "{}" found, skipping...'.format(hashtag))
-				break #blacklist hashtag found
-		else:
+		like = True
+		if 'caption' in element:
+			for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
+				if hashtag.strip().lower() in hashtag_blacklist:
+					print('Blacklisted hashtag "{}" found, skipping...'.format(hashtag))
+					like = False
+					break #blacklist hashtag found
+		if like:
 			print("Liking picture ID {} in #{}...".format(element['pk'], random_tag))
 			try:
 				InstagramAPI.like(element['pk'])
