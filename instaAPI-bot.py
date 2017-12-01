@@ -108,7 +108,7 @@ while True:
 
 	media_id = InstagramAPI.LastJson
 	if max_likes_per_tag > len(media_id['items']): #check hashtag picture count
-		max_likes_per_tag = (len(media_id)['items'])
+		max_likes_per_tag = len(media_id['items'])
 
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
 	for element in media_id['items'][:likes_per_tag+1]:
