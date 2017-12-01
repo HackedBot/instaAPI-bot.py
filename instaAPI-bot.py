@@ -23,7 +23,7 @@ parser.add_argument('-u', '--username', help='instagram username')
 parser.add_argument('-p', '--password', help='instagram password')
 parser.add_argument('-l', '--likes', type=int, default=600, help='likes per day')
 parser.add_argument('-min', '--minlikes', type=int, default=24, help='min likes per tag round')
-parser.add_argument('-max', '--maxlikes', type=int, default=79, help='max likes per tag round')
+parser.add_argument('-max', '--maxlikes', type=int, default=44, help='max likes per tag round')
 parser.add_argument('-ht', '--hashtags', nargs='+', default=["l4l", "f4f"], help='hashtags to like')
 parser.add_argument('-bl', '--blacklist', nargs='+', default=["sex", "nsfw"], help='blacklist hashtags')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.1')
@@ -33,6 +33,7 @@ def cleanup(): #logout and exit when CTRL + C is pressed
 	InstagramAPI.logout()
 	print('\n\n')
 	print('Start time: {}'.format(start_time))
+	print('End time: {}'.format(datetime.now().strftime('%A, %d. %B %Y %I:%M%p')))
 	print('Total likes: {}'.format(total_like))
 	print('\n\n')
 
@@ -106,9 +107,11 @@ while True:
 			time.sleep(random.randint(2,4))
 
 	media_id = InstagramAPI.LastJson
+	if max_likes_per_tag > len(media_id['items']): #check hashtag picture count
+		max_likes_per_tag = (len(media_id)['items'])
 
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
-	for element in media_id['items'][:likes_per_tag]:
+	for element in media_id['items'][:likes_per_tag+1]:
 		like = True
 		if 'caption' in element:
 			for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
