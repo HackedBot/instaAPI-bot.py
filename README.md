@@ -1,7 +1,7 @@
 # instaAPI-bot.py
-## Automated likes on instagram
+## Automated hashtag likes on instagram
 
-### For Python > 3.2
+### For Python 3.2+
 
 This Program uses the private Instagram API by Pasha Lev: https://github.com/LevPasha/Instagram-API-python
 DO NOT use this program in the real world. This is for educational purposes only.
@@ -9,7 +9,7 @@ This is an instagram bot inspired by instabot.py by Pasha Lev but using the priv
 
 ## Requirements:
 
-  Python > 3.2
+  Python 3.2+
   
   Also you need the "requests" modul.
   You can install it with pip:
@@ -38,4 +38,4 @@ Example using command line options:
 
 ### OPTION 2
 
-Open the file settings.py in an editor (preferable notepad++, sublime text2/3, atom) and edit the default values.
+Open the file settings.py in an editor (preferable notepad++, sublime text 2/3, atom) and edit the default values.
