@@ -17,6 +17,9 @@ except:
 	hashtag_list, hashtag_blacklist = [], []
 	likes_per_day, min_likes_per_tag, max_likes_per_tag = 0, 0, 0
 
+import pprint
+pp = pprint.PrettyPrinter(indent=2)
+
 #parser set up
 parser = argparse.ArgumentParser(description='instaAPI-bot - automated likes on instagram')
 parser.add_argument('-u', '--username', help='instagram username')
@@ -113,8 +116,8 @@ while True:
 	likes_per_tag = random.randint(min_likes_per_tag,max_likes_per_tag)
 	for element in media_id['items'][:likes_per_tag+1]:
 		like = True
-		if 'caption' in element:
-			for hashtag in re.split(r'#|\s', element['caption']['text']): #blacklist
+		if element.get('caption', ''):
+			for hashtag in re.split(r'#|\s', element['caption'].get('text', 'blank')): #blacklist
 				if hashtag.strip().lower() in hashtag_blacklist:
 					print('Blacklisted hashtag "{}" found, skipping...'.format(hashtag))
 					like = False
