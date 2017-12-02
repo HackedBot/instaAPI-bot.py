@@ -17,9 +17,6 @@ except:
 	hashtag_list, hashtag_blacklist = [], []
 	likes_per_day, min_likes_per_tag, max_likes_per_tag = 0, 0, 0
 
-import pprint
-pp = pprint.PrettyPrinter(indent=2)
-
 #parser set up
 parser = argparse.ArgumentParser(description='instaAPI-bot - automated likes on instagram')
 parser.add_argument('-u', '--username', help='instagram username')
